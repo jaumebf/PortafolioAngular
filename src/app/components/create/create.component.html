@@ -2,11 +2,14 @@
   <h2>{{title}}</h2>
 
   <div class="message success" *ngIf="status == 'success'">
-      El proyecto se ha creado correctamente, puedes <a href="#">verlo aquí</a>
+    El proyecto se ha creado correctamente, puedes
+    <a [routerLink]="['/proyecto/', save_project._id]">
+      verlo aquí
+    </a>
   </div>
 
   <div class="message failed" *ngIf="status == 'failed'">
-      El proyecto no se ha podido crear
+    El proyecto no se ha podido crear
   </div>
 
   <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">

@@ -18,6 +18,7 @@ export class CreateComponent implements OnInit {
 
   public title: string;
   public project: Project; 
+  public save_project;
   public status: string;
   public filesToUpload: Array<File>;
 
@@ -44,7 +45,10 @@ export class CreateComponent implements OnInit {
               //Subir la imagen
               this._uploadService.makeFileRequest(Global.url+"upload-image/"+response.project._id, [], this.filesToUpload, 'image')
               .then((result: any) => {
-                console.log(result);
+
+                this.save_project = result.project;
+
+                //console.log(result);
                 this.status = 'success';
                 form.reset();
               },
