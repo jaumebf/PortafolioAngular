@@ -15,7 +15,7 @@ export class DetailComponent implements OnInit {
   public project: Project;
   
   constructor(
-    private _projecteService: ProjectService,
+    private _projectService: ProjectService,
     private _router: Router,
     private _route: ActivatedRoute
 
@@ -32,7 +32,7 @@ export class DetailComponent implements OnInit {
   }
 
   getProject(id){
-    this._projecteService.getProject(id).subscribe(
+    this._projectService.getProject(id).subscribe(
       response => {
         this.project = response.project;
       },
@@ -42,5 +42,20 @@ export class DetailComponent implements OnInit {
 
     )
   }
+
+
+  deleteProject(id){
+    this._projectService.deleteProject(id).subscribe(
+      response => {      
+          this._router.navigate(['/proyectos']);
+                  
+      },
+      error => {
+        console.error(<any>error);        
+      }
+
+    )
+  }
+
 
 }
