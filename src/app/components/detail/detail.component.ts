@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../../models/project';
 import { ProjectService } from '../../services/project.service';
+import { UploadService } from '../../services/upload.service';
 import { Global } from '../../services/global';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
@@ -8,11 +9,12 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css'],
-  providers: [ProjectService]
+  providers: [ProjectService, UploadService]
 })
 export class DetailComponent implements OnInit {
   public url: string;
   public project: Project;
+  public confirm: boolean;
   
   constructor(
     private _projectService: ProjectService,
@@ -21,6 +23,7 @@ export class DetailComponent implements OnInit {
 
   ){
       this.url = Global.url;
+      this.confirm = false;
    }
 
   ngOnInit() {
@@ -55,6 +58,12 @@ export class DetailComponent implements OnInit {
       }
 
     )
+  }
+
+
+
+  setConfirm(confirm){
+    this.confirm = confirm;
   }
 
 

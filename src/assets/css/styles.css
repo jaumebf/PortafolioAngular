@@ -297,3 +297,9 @@ form input[disabled]{
 	text-decoration: none;
 	color: black;
 }
+
+.confirm{
+	display: block;
+	font-weight: bold;
+	margin-top: 10px;
+}
