@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../../models/project';
 import { ProjectService } from '../../services/project.service';
-import { UploadService } from '../../services/upload.service';
 import { Global } from '../../services/global';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
@@ -9,7 +8,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css'],
-  providers: [ProjectService, UploadService]
+  providers: [ProjectService]
 })
 export class DetailComponent implements OnInit {
   public url: string;
